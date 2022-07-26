@@ -41,7 +41,7 @@ class Map(object):
 
         # open .yaml
         with open(path_to_yaml, "r") as yf:
-            data = yaml.load(yf)
+            data = yaml.safe_load(yf)
             print(data)
             resolution = data['resolution']
             origin = data['origin']
@@ -53,7 +53,7 @@ class Map(object):
 
     def make_walls_array(self):
         # for finding nearest wall
-        for row, col in itertools.product(range(self.height), range(self.width)):
+        for row, col in itertools.product(range(self.width), range(self.height)):
             if self.img_bool[row][col]:
                 x, y = self.matrix_to_posi(row, col)
                 self.walls.append([x, y])
