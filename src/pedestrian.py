@@ -46,7 +46,7 @@ class Pedestrian(MovingObject, object):
 
     def update_position(self, dt):
         # update position
-        #print('update vel:{0}, dt:{1}'.format(self.velocity, dt))
+        print('update vel:{0}, dt:{1}'.format(self.velocity, dt))
         self.position = self.position + (self.velocity * dt)
 
     def calc_f_total(self, pedestrians, slam_map):
@@ -54,7 +54,7 @@ class Pedestrian(MovingObject, object):
         self.calc_f_wall(slam_map)
         self.calc_f_pedestrian(pedestrians)
         self.calc_f_destination()
-        # print('f_wall:{0}, f_pedestrian:{1}, f_destination:{2}'.format(self.f_wall, self.f_pedestrian, self.f_destination))
+        print('f_wall:{0}, f_pedestrian:{1}, f_destination:{2}'.format(self.f_wall, self.f_pedestrian, self.f_destination))
 
         self.f_total = self.f_wall + self.f_pedestrian + self.f_destination
 
@@ -62,12 +62,12 @@ class Pedestrian(MovingObject, object):
         # calc force from wall
         self.closest_wall[0], self.closest_wall[1] = self.find_closest_wall(map)
         # self.closest_wall[0], self.closest_wall[1] = 0, 0  # for debug
-        # print('closest wall:({0}, {1})'.format(self.closest_wall[0], self.closest_wall[1]))
+        print('closest wall:({0}, {1})'.format(self.closest_wall[0], self.closest_wall[1]))
 
         r_ab = self.position - self.closest_wall
         # print('r_ab:{0}'.format(r_ab))
         result, vx, vy = self.func_w_U(r_ab)
-        # print('wall vx, vy:({0}, {1})'.format(vx, vy))
+        print('wall vx, vy:({0}, {1})'.format(vx, vy))
 
         self.f_wall[0] = vx
         self.f_wall[1] = vy

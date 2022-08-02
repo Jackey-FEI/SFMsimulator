@@ -85,7 +85,7 @@ class Drawer(object):
                                                    pedestrian.position[1], self.zoom)
         width = int(pedestrian.f_destination[0] * self.zoom * 3)
         height = -int(pedestrian.f_destination[1] * self.zoom * 3)
-        # print('x_pix:{0}, y_pix:{1}, width:{2}, height{3}'.format(x_pix, y_pix, width, height))
+        print('x_pix:{0}, y_pix:{1}, width:{2}, height{3}'.format(x_pix, y_pix, width, height))
         pygame.draw.line(self.screen, (0, 255, 0),
                          (x_pix, y_pix), (x_pix + width, y_pix + height), int(self.zoom))
 
@@ -95,7 +95,7 @@ class Drawer(object):
                                                    pedestrian.position[1], self.zoom)
         width = int(pedestrian.f_pedestrian[0] * self.zoom * 3)
         height = -int(pedestrian.f_pedestrian[1] * self.zoom * 3)
-        # print('x_pix:{0}, y_pix:{1}, width:{2}, height{3}'.format(x_pix, y_pix, width, height))
+        print('!x_pix:{0}, y_pix:{1}, width:{2}, height{3}'.format(x_pix, y_pix, width, height))
         pygame.draw.line(self.screen, (0, 0, 255),
                          (x_pix, y_pix), (x_pix + width, y_pix + height), int(self.zoom))
 
